@@ -7,5 +7,5 @@ locals {
 }
 
 output "EBS" {
-  value = tolist(aws_spot_instance_request.spot-instance.*.root_block_device)
+  value = aws_spot_instance_request.spot-instance.*.root_block_device[*]
 }
