@@ -7,5 +7,5 @@ locals {
 }
 
 output "EBS" {
-  value = aws_spot_instance_request.spot-instance.*.ebs_block_device
+  value = aws_spot_instance_request.spot-instance
 }
