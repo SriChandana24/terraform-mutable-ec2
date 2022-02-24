@@ -11,3 +11,4 @@ resource "aws_spot_instance_request" "spot-instance" {
   instance_type        = var.SPOT_INSTANCE_TYPE
   wait_for_fulfillment = true
 }
+
