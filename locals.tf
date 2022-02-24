@@ -5,9 +5,9 @@ locals {
   ALL_TAG_IDS = concat(local.ALL_INSTANCE_IDS, local.ALL_SPOT_IDS)
   TAG_NAME    = "${var.COMPONENT}-${var.ENV}"
 }
-
-output "EBS" {
-  value = lookup(aws_spot_instance_request.spot-instance.*.root_block_device, "volume_id", null)
-}
-
-// lookup(map, key, default)
+//
+//output "EBS" {
+//  value = lookup(aws_spot_instance_request.spot-instance.*.root_block_device, "volume_id", null)
+//}
+//
+//// lookup(map, key, default)
