@@ -7,5 +7,5 @@ locals {
 }
 
 output "EBS" {
-  value = zipmap([for m in aws_spot_instance_request.spot-instance.*.root_block_device : m.volume_id])
+  value = tolist(aws_spot_instance_request.spot-instance.*.root_block_device)
 }
