@@ -13,7 +13,7 @@ resource "aws_spot_instance_request" "spot-instance" {
 
 resource "aws_ec2_tag" "ec2-name-tag" {
   count       = length(local.ALL_INSTANCE_IDS)
-  resource_id = element(local.ALL_INSTANCE_IDS, count.index)
+  resource_id = local.ALL_INSTANCE_IDS[count.index]
   key         = "Name"
   value       = local.TAG_NAME
 }
