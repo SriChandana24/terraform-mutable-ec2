@@ -7,5 +7,5 @@ locals {
 }
 
 output "EBS" {
-  value = [for m in aws_spot_instance_request.spot-instance.*.root_block_device : m.name]
+  value = [for m in aws_spot_instance_request.spot-instance.*.root_block_device : m.volume_id]
 }
