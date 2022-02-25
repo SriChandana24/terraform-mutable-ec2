@@ -9,7 +9,7 @@ resource "aws_spot_instance_request" "spot-instance" {
   ami                  = data.aws_ami.ami.id
   instance_type        = var.SPOT_INSTANCE_TYPE
   wait_for_fulfillment = true
-  root_block_device = {
+  root_block_device {
     volume_size = 10
   }
 }
