@@ -7,7 +7,9 @@ locals {
 }
 //
 output "EBS" {
-  value = aws_spot_instance_request.spot-instance.*.root_block_device
+  value = aws_spot_instance_request.spot-instance.*.root_block_device[0]
 }
 //
 //// lookup(map, key, default)
+
+//value = "${lookup(data.aws_kms_secrets.api_key.*.plaintext[count.index], "secret_name")}"
