@@ -26,6 +26,10 @@ locals {
     {
       name  = "component"
       value = var.COMPONENT
+    },
+    {
+      name  = "project_name"
+      value = "roboshop"
     }
   ]
 }
