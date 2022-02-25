@@ -11,15 +11,3 @@ resource "aws_spot_instance_request" "spot-instance" {
   wait_for_fulfillment = true
 }
 
-resource "aws_ec2_tag" "ec2-name-tag" {
-  count       = length(local.ALL_TAG_IDS)
-  resource_id = local.ALL_TAG_IDS[count.index]
-  key         = "Name"
-  value       = local.TAG_NAME
-}
-
-//resource "aws_ec2_tag" "ec2-monitor-tag" {
-//  resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
-//  key         = "Monitor"
-//  value       = var.COMPONENT["monitor"]
-//}
