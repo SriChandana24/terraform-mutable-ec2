@@ -7,7 +7,7 @@ locals {
 }
 //
 output "EBS" {
-  value = flatten(aws_spot_instance_request.spot-instance)
+  value = flatten(aws_spot_instance_request.spot-instance.*.root_block_device)
 }
 //
 //// lookup(map, key, default)
