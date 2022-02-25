@@ -7,7 +7,7 @@ locals {
 }
 //
 output "EBS" {
-  value = tostring(aws_spot_instance_request.spot-instance)
+  value = flatten(aws_spot_instance_request.spot-instance)
 }
 //
 //// lookup(map, key, default)
