@@ -11,5 +11,5 @@ locals {
 
 
 output "EBS" {
-  value = aws_instance.od-instance
+  value = local.ALL_VOLUME_IDS
 }
