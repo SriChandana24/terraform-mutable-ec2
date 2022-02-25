@@ -7,7 +7,7 @@ locals {
 }
 //
 output "EBS" {
-  value = concat(aws_spot_instance_request.spot-instance.*.root_block_device)
+  value = aws_spot_instance_request.spot-instance.*.root_block_device
 }
 //
 //// lookup(map, key, default)
