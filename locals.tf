@@ -7,8 +7,10 @@ locals {
 }
 //
 output "EBS" {
-  value = lookup(flatten(aws_spot_instance_request.spot-instance.*.root_block_device), "volume_id")
+  value = [for m in flatten(aws_spot_instance_request.spot-instance.*.root_block_device) : m.volume_id]
 }
+
+
 //
 //// lookup(map, key, default)
 
