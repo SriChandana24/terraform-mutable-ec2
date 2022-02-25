@@ -8,7 +8,3 @@ locals {
   ALL_VOLUME_IDS        = concat(local.SPOT_VOLUME_ID, local.OD_VOLUME_ID)
 }
 
-
-output "EBS" {
-  value = local.ALL_VOLUME_IDS
-}
