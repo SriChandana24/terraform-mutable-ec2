@@ -6,8 +6,8 @@ locals {
   TAG_NAME    = "${var.COMPONENT}-${var.ENV}"
 }
 //
-//output "EBS" {
-//  value = lookup(aws_spot_instance_request.spot-instance.*.root_block_device, "volume_id", null)
-//}
+output "EBS" {
+  value = lookup(aws_spot_instance_request.spot-instance.*.root_block_device, "volume_id", null)
+}
 //
 //// lookup(map, key, default)
