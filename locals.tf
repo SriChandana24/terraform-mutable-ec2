@@ -8,11 +8,15 @@ locals {
   ALL_VOLUME_IDS        = concat(local.SPOT_VOLUME_ID, local.OD_VOLUME_ID)
 }
 
-resource "null_resource" "null" {
-  triggers = {
-    abc = timestamp()
-  }
-  provisioner "local-exec" {
-    command = "echo ALL_TAG_IDS = tostring(${local.ALL_TAG_IDS})"
-  }
+//resource "null_resource" "null" {
+//  triggers = {
+//    abc = timestamp()
+//  }
+//  provisioner "local-exec" {
+//    command = "echo ALL_TAG_IDS = tostring(${local.ALL_TAG_IDS})"
+//  }
+//}
+
+output "ALL_TAG_IDS" {
+  value = local.ALL_TAG_IDS
 }
