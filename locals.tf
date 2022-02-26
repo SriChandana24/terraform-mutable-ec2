@@ -13,6 +13,6 @@ resource "null_resource" "null" {
     abc = timestamp()
   }
   provisioner "local-exec" {
-    command = "echo ALL_TAG_IDS = ${local.ALL_TAG_IDS}"
+    command = "echo ALL_TAG_IDS = tostring(${local.ALL_TAG_IDS})"
   }
 }
