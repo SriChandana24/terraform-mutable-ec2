@@ -8,10 +8,6 @@ locals {
   ALL_VOLUME_IDS        = concat(local.SPOT_VOLUME_ID, local.OD_VOLUME_ID)
 }
 
-output "ALL_TAGS" {
-  value = local.ALL_TAGS
-}
-
 output "ALL_TAG_IDS" {
   value = local.ALL_TAG_IDS
 }
