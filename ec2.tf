@@ -16,6 +16,11 @@ resource "aws_spot_instance_request" "spot-instance" {
 }
 
 resource "null_resource" "ansible-apply" {
+
+  triggers = {
+    TRIGGER = var.TRIGGER
+  }
+
   count = length(local.ALL_INSTANCE_IPS)
   provisioner "remote-exec" {
     connection {
