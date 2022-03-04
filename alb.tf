@@ -35,7 +35,7 @@ resource "random_integer" "priority" {
   min = 100
   max = 500
   keepers = {
-    listener_arn = data.terraform_remote_state.alb.outputs.backend_listener_arn
+    tg_arn = aws_lb_target_group.tg.arn
   }
 }
 
