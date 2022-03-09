@@ -25,7 +25,8 @@ pipeline {
             error "VERSION is already tagged, Use new version number"
           } else {
               sh 'mkdir temp'
-              def gitUrl = sh script:"echo \$GIT_URL | sed -e 's|@github|\${TOKEN}@github|'", returnStdout:true
+              def gitUrl = sh script:"env", returnStdout:true
+              //def gitUrl = sh script:"echo \$GIT_URL | sed -e 's|@github|\${TOKEN}@github|'", returnStdout:true
               sh 'echo $gitUrl'
           }
         }
