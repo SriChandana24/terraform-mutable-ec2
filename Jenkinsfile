@@ -15,7 +15,7 @@ pipeline {
     stage('Create Release') {
       steps {
         sh '''
-git tag -l -n2
+git ls-remote --tags origin
           git tag -l -n2 | grep $(cat VERSION| sed -e 's|#||') 
         '''
       }
