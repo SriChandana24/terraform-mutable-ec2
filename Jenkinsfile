@@ -14,7 +14,9 @@ pipeline {
 
     stage('Create Release') {
       steps {
-        sh 'cat VERSION'
+        sh '''
+          git tag -l -n2 | grep $(cat VERSION| sed -e 's|#||') 
+        '''
       }
     }
 
