@@ -14,7 +14,7 @@ pipeline {
 
     stage('Create Release') {
       steps {
-        sh 'echo'
+        sh 'cat VERSION'
       }
     }
 
