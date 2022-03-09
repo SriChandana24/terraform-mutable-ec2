@@ -26,6 +26,7 @@ pipeline {
           } else {
               sh 'mkdir temp'
               def gitUrl = sh script:"env", returnStdout:true
+              GIT_COMMIT_EMAIL = sh (script: 'ls',returnStdout: true).trim()
               //def gitUrl = sh script:"echo \$GIT_URL | sed -e 's|@github|\${TOKEN}@github|'", returnStdout:true
               sh 'echo $gitUrl'
           }
