@@ -25,7 +25,8 @@ pipeline {
             error "VERSION is already tagged, Use new version number"
           } else {
               sh 'mkdir temp'
-              sh 'cd temp; git clone ${GIT_URL} .'
+              def gitUrl = sh script:"echo \$GIT_URL | sed -e 's|@github|\${TOKEN}@github|'"
+              sh 'echo $gitUrl'
           }
         }
       }
