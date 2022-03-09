@@ -14,9 +14,10 @@ pipeline {
 
     stage('Create Release') {
       steps {
-        sh '''
-git ls-remote --tags origin | grep $(cat VERSION| sed -e 's|#||') 
-        '''
+        script {
+          def statusCode = sh script:"git ls-remote --tags origin | grep \$(cat VERSION | sed -e 's|#||')", returnStatus:true
+          print statusCode
+        }
       }
     }
 
