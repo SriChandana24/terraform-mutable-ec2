@@ -4,6 +4,10 @@ pipeline {
     node { label 'workstation' }
   }
 
+  environment {
+    TOKEN = credentials('GITHUB_TOKEN')
+  }
+
   stages {
 
     stage('Check Code Style') {
@@ -21,7 +25,7 @@ pipeline {
             error "VERSION is already tagged, Use new version number"
           } else {
               sh 'mkdir temp'
-              sh 'env'
+              sh 'cd temp; git clone ${GIT_URL} .'
           }
         }
       }
