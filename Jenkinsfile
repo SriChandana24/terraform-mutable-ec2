@@ -27,7 +27,10 @@ pipeline {
               sh '''
                 mkdir temp 
                 GIT_URL=$(echo $GIT_URL | sed -e "s|github.com|${TOKEN}@github.com|")
-                echo URL = $GIT_URL
+                cd temp
+                git clone $GIT_URL .
+                ls -ltr 
+                
               '''
 //              sh 'mkdir temp'
 //              //def gitUrl = sh script:"env", returnStdout:true
