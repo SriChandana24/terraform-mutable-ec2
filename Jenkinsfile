@@ -34,7 +34,7 @@ pipeline {
                 GIT_URL=$(echo $GIT_URL | sed -e "s|github.com|${TOKEN}@github.com|")
                 cd temp
                 git clone $GIT_URL .
-                TAG=$(cat VERSION | grep "^#[0-9].[0-9].[0-9]" | head -1)
+                TAG=$(cat VERSION | grep "^#[0-9].[0-9].[0-9]" | head -1|sed -e "s|#|v|")
                 git tag $TAG 
                 git push --tags                  
               '''
