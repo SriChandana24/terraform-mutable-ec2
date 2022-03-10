@@ -26,7 +26,7 @@ pipeline {
           } else {
               sh '''
                 mkdir temp 
-                echo $GIT_URL | sed -e 's|@github|${TOKEN}@github|' 
+                echo $GIT_URL | sed -e 's|github.com|${TOKEN}@github.com|' 
               '''
 //              sh 'mkdir temp'
 //              //def gitUrl = sh script:"env", returnStdout:true
