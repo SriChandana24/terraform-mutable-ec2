@@ -17,6 +17,11 @@ pipeline {
     }
 
     stage('Create Release') {
+      when {
+        expression {
+          GIT_BRANCH == "main"
+        }
+      }
       steps {
         script {
           //def statusCode = sh script:"git ls-remote --tags origin | grep \$(cat VERSION | sed -e 's|#||')", returnStatus:true
@@ -29,13 +34,10 @@ pipeline {
                 GIT_URL=$(echo $GIT_URL | sed -e "s|github.com|${TOKEN}@github.com|")
                 cd temp
                 git clone $GIT_URL .
-                ls -ltr 
-                
+                TAG=$(cat VERSION | grep "^#[0-9].[0-9].[0-9]" | head -1)
+                git tag $TAG 
+                git push --tags                  
               '''
-//              sh 'mkdir temp'
-//              //def gitUrl = sh script:"env", returnStdout:true
-//              env gitUrl = sh script:"echo \$GIT_URL | sed -e 's|@github|\${TOKEN}@github|'", returnStdout:true
-//              sh 'echo gitUrl'
           }
         }
       }
