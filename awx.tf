@@ -1,10 +1,3 @@
-provider "awx" {
-  hostname = "http://172.31.18.170"
-  username = "admin"
-  password = "password"
-}
-
-
 resource "awx_host" "k3snode1" {
   name         = "cart"
   description  = "cart"
