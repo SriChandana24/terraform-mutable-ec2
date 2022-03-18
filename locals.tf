@@ -14,3 +14,6 @@ output "ALL_TAG_IDS" {
   value = local.ALL_TAG_IDS
 }
 
+output "ALL_INSTANCE_IDS" {
+  value = local.ALL_INSTANCE_IDS
+}
