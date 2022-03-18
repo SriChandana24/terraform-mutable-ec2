@@ -31,6 +31,21 @@ resource "aws_lb_listener" "frontend" {
   }
 }
 
+resource "aws_lb_listener" "frontend-https" {
+  count             = var.ALB_ATTACH_TO == "frontend" ? 1 : 0
+  load_balancer_arn = data.terraform_remote_state.alb.outputs.frontend-arn
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = data.terraform_remote_state.vpc.outputs.PUBLIC_ACM_ARN
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.tg.arn
+  }
+}
+
+
 resource "random_integer" "priority" {
   min = 100
   max = 500
