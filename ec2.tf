@@ -18,7 +18,8 @@ resource "aws_spot_instance_request" "spot-instance" {
 resource "null_resource" "ansible-apply" {
 
   triggers = {
-    TRIGGER = var.TRIGGER
+    TRIGGER     = var.TRIGGER
+    APP_VERSION = var.APP_VERSION
   }
 
   count = length(local.ALL_INSTANCE_IPS)
